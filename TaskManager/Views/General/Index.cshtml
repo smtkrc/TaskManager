@@ -1,0 +1,90 @@
+﻿@using EntityLayer.Concrete
+@model List<TaskDetay>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+    <table id="table1" class="table table-bordered">
+        <thead>
+            <tr style="text-align:center">
+                <th>TaskID</th>
+                <th>TaskBaslık</th>
+                <th>Taskİçerik</th>
+                <th>TaskBaslangıç Tarihi</th>
+                <th>Task Durum</th>
+                <th>Task Oluşturulma tarihi</th>
+                <th>Task Öncelik</th>
+                <th>Atanan Personel</th>
+                <th>Düzenle</th>
+                <th>İşlemler</th>
+                <th>TaskDokumanlar</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center">
+                <td>@item.TaskId</td>
+                <td>@item.TaskBaslik</td>
+                <td>@item.TaskIcerik</td>
+                <td>@item.TaskBaslangicTarihi</td>
+                <td>@item.TaskDurum.DurumAd</td>
+                <td>@item.TaskOlusturulmaTarihi</td>
+                <td>@item.TaskOncelik.OncelikAd</td>
+                <td>@item.Personel.PersonelAdSoyad</td>
+                <td>
+                    <a href="#" class="btn btn-success">Düzenle</a>
+                    <a href="#" class="btn btn-danger">Sil</a>
+                </td>
+                <td><a href="#" class="btn btn-info">Personele Ata</a></td>
+                <td><a href="/Dokumanlar/Index" class="btn btn-warning">Task Dokumanlar</a></td>
+            </tr>
+
+        }
+    </table>
+<a href="/General/TaskEkle" class="btn btn-info"> Yeni Task Girişi</a>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var table = $('#table1').DataTable({
+            lengthChange: false,
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+</script>

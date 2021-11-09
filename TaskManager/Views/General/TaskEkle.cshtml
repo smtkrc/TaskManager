@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.TaskDetay
+@{
+    ViewData["Title"] = "TaskEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Task Ekleme Alanı</h2>
+<br />
+@using (Html.BeginForm("TaskEkle", "General", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.TaskBaslik)
+    @Html.TextBoxFor(x => x.TaskBaslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaskIcerik)
+    @Html.TextBoxFor(x => x.TaskIcerik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DurumId)
+    @Html.TextBoxFor(x => x.DurumId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.OncelikId)
+    @Html.TextBoxFor(x => x.OncelikId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel")
+    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dg1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaskBaslangicTarihi)
+    @Html.TextBoxFor(x => x.TaskBaslangicTarihi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaskBitisTarihi)
+    @Html.TextBoxFor(x => x.TaskBitisTarihi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelId)
+    <br />
+    <input type="file" name="" />
+    <br />
+    <br />
+    <button class="btn btn-warning">Kaydet</button>
+    <br />
+    <br />
+    <br />
+</form>
+}

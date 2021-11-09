@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<form method="post">
+    <table style="margin-top:100px;margin-left:660px;width:500px;height:300px;text-align:center;border-color:black;border:inset">
+        <tr>
+            <td>
+                <b style="font-size:large">Kullanıcı Girişi</b>
+                <br />
+                <br />
+                <br />
+                <div>
+                    <br />
+                    @using (Html.BeginForm("Index", "AdminControl", FormMethod.Post))
+                    {
+                        <table class="table-bordered">
+                            <tr>
+                                <input type="text" class="PersonelKullaniciAdi" name="PersonelKullaniciAdi" style="width:300px" placeholder="Kullanıcı adı" />
+                            </tr>
+                        </table>
+                        <br />
+                        <table class="table-bordered">
+                            <tr>
+                                <input class="PersonelSifre" name="PersonelSifre" style="width:300px" type="password" placeholder="Şifre" />
+                            </tr>
+                        </table>
+                        <div style="margin-left:220px">
+                            <input class="btn btn-info" style="color:black;border-color:white;background-color:transparent" type="submit" value="Giriş Yap">
+                        </div>
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />

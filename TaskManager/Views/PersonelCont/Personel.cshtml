@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Personel
+@{
+    ViewData["Title"] = "PersonelCont";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Task Ekleme Alanı</h2>
+<br />
+@using (Html.BeginForm("Personel", "PersonelCont", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.PersonelAdSoyad)
+    @Html.TextBoxFor(x => x.PersonelAdSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelEmail)
+    @Html.TextBoxFor(x => x.PersonelEmail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelKullaniciAdi)
+    @Html.TextBoxFor(x => x.PersonelKullaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelSifre)
+    @Html.TextBoxFor(x => x.PersonelSifre, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.YetkiId)
+    @Html.TextBoxFor(x => x.YetkiId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DepartmanId)
+    @Html.TextBoxFor(x => x.DepartmanId, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-warning">Kaydet</button>
+</form>
+}
